@@ -1,12 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import { BrowserRouter as Router } from 'react-router-dom';
+import routes from './routes';
+import Header from './components/Header';
 
-ReactDOM.render(<App />, document.getElementById('root'));
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+// initialize rotues and navi links
+const initRoutes = () => (
+  <Router>
+    <div>
+      <Header />
+      <div className='container'>{routes}</div>
+    </div>
+  </Router>
+);
+const initializedRoutes = initRoutes();
+ReactDOM.render(initializedRoutes, document.getElementById('root'));
